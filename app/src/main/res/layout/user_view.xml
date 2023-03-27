@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtUser"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="20dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D51EE9"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtDisplayUserName"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:lineSpacingExtra="10sp"
+            android:text="Nimi"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtDisplayAla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ala" />
+
+        <TextView
+            android:id="@+id/txtDisplayEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sähköposti" />
+
+    </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
