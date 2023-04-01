@@ -2,6 +2,7 @@ package org.roniseppala.harjoitus2_0;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ public class ActivityAddUser extends AppCompatActivity {
     private RadioGroup ala;
 
     private UserStorage storage = UserStorage.getInstance();
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class ActivityAddUser extends AppCompatActivity {
         lastName = findViewById(R.id.txtLastName);
         email = findViewById(R.id.txtEmail);
         ala = findViewById(R.id.rgAla);
+
+        context = ActivityAddUser.this;
     }
 
     public void addUser(View view){
@@ -44,6 +48,7 @@ public class ActivityAddUser extends AppCompatActivity {
                 break;
         }
         storage.addUser(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), alaString);
+        storage.saveUsers(context);
 
     }
 }
