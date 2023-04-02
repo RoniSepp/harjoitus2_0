@@ -50,33 +50,11 @@ public class ActivityAddUser extends AppCompatActivity {
         tempIsDI = false;
         tempIsTohtori = false;
         tempIsUima = false;
-    }
-
-    public void addUser(View view){
-        String alaString = "";
-        switch (ala.getCheckedRadioButtonId()){
-            case R.id.rbTiTe:
-                alaString = "Tietotekniikka";
-                break;
-            case R.id.rbTuTa:
-                alaString = "Tuotantotalous";
-                break;
-            case R.id.rbLaTe:
-                alaString = "Laskennallinen tekniikka";
-                break;
-            case R.id.rbSäte:
-                alaString = "Sähkötekniikka";
-                break;
-        }
 
         cbKandi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked){
-                    tempIsKandi = true;
-                } else {
-                    tempIsKandi = false;
-                }
+                tempIsKandi = isChecked;
             }
         });
 
@@ -112,6 +90,24 @@ public class ActivityAddUser extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void addUser(View view){
+        String alaString = "";
+        switch (ala.getCheckedRadioButtonId()){
+            case R.id.rbTiTe:
+                alaString = "Tietotekniikka";
+                break;
+            case R.id.rbTuTa:
+                alaString = "Tuotantotalous";
+                break;
+            case R.id.rbLaTe:
+                alaString = "Laskennallinen tekniikka";
+                break;
+            case R.id.rbSäte:
+                alaString = "Sähkötekniikka";
+                break;
+        }
 
 
 

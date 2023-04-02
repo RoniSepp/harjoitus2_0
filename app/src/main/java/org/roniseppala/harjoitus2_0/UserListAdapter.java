@@ -47,7 +47,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder>{
                 tempTutkinto = tempTutkinto + "-Uimamaisteri\n";
             }
             holder.userTutkinto.setText(tempTutkinto);
+
+            System.out.println(tempTutkinto);
         }
+
     }
 
     @Override
