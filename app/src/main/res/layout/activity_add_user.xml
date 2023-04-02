@@ -10,12 +10,12 @@
         android:id="@+id/txtFirstName"
         android:layout_width="291dp"
         android:layout_height="46dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Etunimi"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,12 +23,12 @@
         android:id="@+id/txtLastName"
         android:layout_width="294dp"
         android:layout_height="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Sukunimi"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
 
@@ -36,12 +36,12 @@
         android:id="@+id/txtEmail"
         android:layout_width="295dp"
         android:layout_height="41dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Sähköpostiosoite"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLastName" />
 
@@ -49,7 +49,7 @@
         android:id="@+id/rgAla"
         android:layout_width="297dp"
         android:layout_height="185dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmail">
@@ -83,11 +83,49 @@
         android:id="@+id/btAddUserFinalize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:onClick="addUser"
         android:text="Lisää Käyttäjä"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbUimamaisteri" />
+
+    <CheckBox
+        android:id="@+id/cbKandi"
+        android:layout_width="296dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Kandidaatin tutkinto"
+        app:layout_constraintEnd_toEndOf="@+id/rgAla"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/rgAla"
         app:layout_constraintTop_toBottomOf="@+id/rgAla" />
+
+    <CheckBox
+        android:id="@+id/cbDI"
+        android:layout_width="296dp"
+        android:layout_height="40dp"
+        android:text="Diplomi-insinöörin tutkinto"
+        app:layout_constraintEnd_toEndOf="@+id/cbKandi"
+        app:layout_constraintStart_toStartOf="@+id/cbKandi"
+        app:layout_constraintTop_toBottomOf="@+id/cbKandi" />
+
+    <CheckBox
+        android:id="@+id/cbTohtori"
+        android:layout_width="296dp"
+        android:layout_height="40dp"
+        android:text="Tekniikan tohtorin tutkinto"
+        app:layout_constraintStart_toStartOf="@+id/cbDI"
+        app:layout_constraintTop_toBottomOf="@+id/cbDI" />
+
+    <CheckBox
+        android:id="@+id/cbUimamaisteri"
+        android:layout_width="296dp"
+        android:layout_height="40dp"
+        android:text="Uimamaisteri"
+        app:layout_constraintEnd_toEndOf="@+id/cbTohtori"
+        app:layout_constraintStart_toStartOf="@+id/cbTohtori"
+        app:layout_constraintTop_toBottomOf="@+id/cbTohtori" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

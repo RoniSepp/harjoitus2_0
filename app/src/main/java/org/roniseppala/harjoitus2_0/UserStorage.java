@@ -24,12 +24,16 @@ public class UserStorage {
         return storage;
     }
 
-    public void addUser(String firstName, String lastName, String email, String ala){
-        users.add(new User(firstName, lastName, email, ala));
+    public void addUser(String firstName, String lastName, String email, String ala, Boolean kandi, Boolean di, Boolean tohtori, Boolean uima){
+        users.add(new User(firstName, lastName, email, ala, kandi,  di,  tohtori,  uima));
     }
 
     public ArrayList<User> getUsers(){
         return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 
     public void saveUsers(Context context){

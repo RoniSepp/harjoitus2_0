@@ -31,7 +31,9 @@ public class ActivityListUsers extends AppCompatActivity {
             }
         };
 
-        Collections.sort(tempUsers, comparator);
+        tempUsers.sort(comparator);
+
+        storage.setUsers(tempUsers);
 
         recyclerView = findViewById(R.id.rvUserList);
 

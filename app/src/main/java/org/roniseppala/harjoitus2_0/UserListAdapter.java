@@ -29,9 +29,25 @@ public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        String tempTutkinto = "Suoritetut tutkinnot:\n";
         holder.userName.setText(users.get(position).getFirstNameName() + " " + users.get(position).getLastName());
         holder.userAla.setText((users.get(position).getDegreeProgram()));
         holder.userEmail.setText(users.get(position).getEmail());
+        if ((users.get(position).getDI() || users.get(position).getKandi() || users.get(position).getTohtori() || users.get(position).getUima())){
+            if (users.get(position).getKandi()){
+                tempTutkinto = tempTutkinto + "-Kandidaatin tutkinto\n";
+            }
+            if (users.get(position).getDI()){
+                tempTutkinto = tempTutkinto + "-Diplomi-insinöörin tutkinto\n";
+            }
+            if (users.get(position).getTohtori()){
+                tempTutkinto = tempTutkinto + "-Tekniikan tohtorin tutkinto\n";
+            }
+            if (users.get(position).getUima()){
+                tempTutkinto = tempTutkinto + "-Uimamaisteri\n";
+            }
+            holder.userTutkinto.setText(tempTutkinto);
+        }
     }
 
     @Override

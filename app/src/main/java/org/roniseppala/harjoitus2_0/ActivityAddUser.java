@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -14,9 +16,18 @@ public class ActivityAddUser extends AppCompatActivity {
     private EditText lastName;
     private EditText email;
     private RadioGroup ala;
+    private CheckBox cbKandi;
+    private CheckBox cbDi;
+    private CheckBox cbTohtori;
+    private CheckBox cbUima;
 
     private UserStorage storage = UserStorage.getInstance();
     private Context context;
+    private Boolean tempIsKandi;
+    private Boolean tempIsDI;
+    private Boolean tempIsTohtori;
+    private Boolean tempIsUima;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +38,18 @@ public class ActivityAddUser extends AppCompatActivity {
         lastName = findViewById(R.id.txtLastName);
         email = findViewById(R.id.txtEmail);
         ala = findViewById(R.id.rgAla);
+        cbKandi = findViewById(R.id.cbKandi);
+        cbDi = findViewById(R.id.cbDI);
+        cbTohtori = findViewById(R.id.cbTohtori);
+        cbUima = findViewById(R.id.cbUimamaisteri);
 
         context = ActivityAddUser.this;
+
+
+        tempIsKandi = false;
+        tempIsDI = false;
+        tempIsTohtori = false;
+        tempIsUima = false;
     }
 
     public void addUser(View view){
@@ -47,7 +68,63 @@ public class ActivityAddUser extends AppCompatActivity {
                 alaString = "Sähkötekniikka";
                 break;
         }
-        storage.addUser(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), alaString);
+
+        cbKandi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    tempIsKandi = true;
+                } else {
+                    tempIsKandi = false;
+                }
+            }
+        });
+
+        cbDi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    tempIsDI = true;
+                } else {
+                    tempIsDI = false;
+                }
+            }
+        });
+
+        cbTohtori.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    tempIsTohtori = true;
+                } else {
+                    tempIsTohtori = false;
+                }
+            }
+        });
+
+        cbUima.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    tempIsUima = true;
+                } else {
+                    tempIsUima = false;
+                }
+            }
+        });
+
+
+
+        storage.addUser(firstName.getText().toString(),
+                lastName.getText().toString(),
+                email.getText().toString(),
+                alaString,
+                tempIsKandi,
+                tempIsDI,
+                tempIsTohtori,
+                tempIsUima);
+
+
         storage.saveUsers(context);
 
     }
